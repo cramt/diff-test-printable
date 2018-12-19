@@ -11,10 +11,10 @@ let individualData = data.map(testResult => {
             let algorithm = testResult.alogritmResult[algorithmName]
             let numbers = Object.getOwnPropertyNames(algorithm).map(parseFloat)
             let speed = numbers.map(number => {
-                return algorithm[number].speed
+                return Math.abs(algorithm[number].speed)
             })
             let precision = numbers.map(number => {
-                return algorithm[number].precision
+                return Math.abs(algorithm[number].precision)
             })
             let precisionAverage = precision.reduce((a, b) => a + b, 0) / precision.length
             let speedAverage = speed.reduce((a, b) => a + b, 0) / speed.length
